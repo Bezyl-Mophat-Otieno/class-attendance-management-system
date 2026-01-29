@@ -1,0 +1,6 @@
+@ClassAttendanceManagementSystem_backend_HostAddress = http://localhost:5212
+
+GET {{ClassAttendanceManagementSystem_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

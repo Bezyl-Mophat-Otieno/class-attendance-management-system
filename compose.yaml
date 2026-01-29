@@ -1,0 +1,7 @@
+﻿services:
+  classattendancemanagementsystem-backend:
+    image: classattendancemanagementsystem-backend
+    build:
+      context: .
+      dockerfile: ClassAttendanceManagementSystem-backend/Dockerfile
+
