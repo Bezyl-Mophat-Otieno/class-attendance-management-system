@@ -5,14 +5,14 @@ namespace CAMS.domain.Courses;
 
 public class Course
 {
-    public CourseId CourseId { get; private set; }
+    public CourseId Id { get; private set; }
     public CourseName CourseName { get; private set; }
     public CourseCode CourseCode { get; private set; }
     public CourseDuration CourseDuration { get; private set; }
 
     private Course(CourseId id,  CourseName name, CourseDuration duration)
     {
-        CourseId = id;
+        Id = id;
         CourseName = name;
         CourseCode = CourseCode.From(name);
         CourseDuration = duration;

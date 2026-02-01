@@ -1,3 +1,5 @@
+using ClassAttendanceManagementSystem.Errors;
+
 namespace CAMS.domain.ValueValidationTypes;
 
 public sealed record CourseId
@@ -6,7 +8,7 @@ public sealed record CourseId
 
     private CourseId(Guid value)
     {
-        if (value == Guid.Empty) throw new ArgumentException("Invalid Course Id");
+        if (value == Guid.Empty) throw new InvalidCourseId("CourseId should not be empty");
         Value = value;
     }
 
