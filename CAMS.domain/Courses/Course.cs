@@ -18,7 +18,7 @@ public class Course
         CourseDuration = duration;
     }
 
-    public Course Create(CourseName name, CourseDuration duration)
+    public static Course Create(CourseName name, CourseDuration duration)
     {
         return new Course(CourseId.New(), name, duration);
     }

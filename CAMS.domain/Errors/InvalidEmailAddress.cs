@@ -1,6 +1,6 @@
 namespace ClassAttendanceManagementSystem.Errors;
 
-public class InvalidEmailAddress: DomainExceptions
+public class InvalidEmailAddress: DomainException
 {
     public InvalidEmailAddress(string errorMessage): base(errorMessage) { }
     

@@ -1,3 +1,5 @@
+using ClassAttendanceManagementSystem.Errors;
+
 namespace CAMS.domain.ValueValidationTypes;
 
 public record CourseName
@@ -8,7 +10,7 @@ public record CourseName
     {
         if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentException("Invalid course name");
+            throw new InvalidCourseName("Course name can not be empty");
         }
 
         Value = value;

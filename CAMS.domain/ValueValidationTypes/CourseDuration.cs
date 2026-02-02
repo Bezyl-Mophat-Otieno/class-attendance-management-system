@@ -4,7 +4,7 @@ public record CourseDuration
 {
     public int Value { get; }
 
-    public CourseDuration(int duration)
+    private CourseDuration(int duration)
     {
         if (duration is < 1 or > 6 )
         {
@@ -12,5 +12,10 @@ public record CourseDuration
         }
 
         Value = duration;
+    }
+
+    public static CourseDuration From(int value)
+    {
+        return new CourseDuration(value);
     }
 }

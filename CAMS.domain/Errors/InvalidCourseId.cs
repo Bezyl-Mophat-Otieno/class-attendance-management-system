@@ -1,6 +1,6 @@
 namespace ClassAttendanceManagementSystem.Errors;
 
-public class InvalidCourseId: DomainExceptions
+public class InvalidCourseId: DomainException
 {
     public InvalidCourseId(string errorMessage): base(errorMessage)
     {

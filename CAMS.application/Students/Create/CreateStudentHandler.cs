@@ -36,7 +36,7 @@ public class CreateStudentHandler
             return Result<StudentId>.Success(student.Id) ;
 
         }
-        catch (DomainExceptions ex)
+        catch (DomainException ex)
         {
             return Result<StudentId>.Failure(ex.Message);
         }
