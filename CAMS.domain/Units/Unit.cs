@@ -9,7 +9,7 @@ public class Unit
     public UnitCode UnitCode { get; private set; }
     public UnitDuration UnitDuration { get; private set; }
 
-    private Unit(UnitId id,  UnitName name, UnitDuration duration)
+    private Unit(UnitId id, UnitName name, UnitDuration duration)
     {
         UnitId = id;
         UnitName = name;
@@ -21,7 +21,7 @@ public class Unit
     {
         return new Unit(UnitId.New(), name, duration);
     }
-    
+
     public void Rename(UnitName name)
     {
         UnitName = name;

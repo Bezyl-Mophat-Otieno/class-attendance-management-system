@@ -30,5 +30,5 @@ public class Result
     {
         return new Result(false, errorMessage);
     }
-    
+
 }

@@ -1,10 +1,10 @@
 namespace ClassAttendanceManagementSystem.Errors;
 
-public class InvalidStudentId: DomainException
+public class InvalidStudentId : DomainException
 {
-    public InvalidStudentId(string errorMessage): base(errorMessage)
+    public InvalidStudentId(string errorMessage) : base(errorMessage)
     {
-        
+
     }
-    
+
 }

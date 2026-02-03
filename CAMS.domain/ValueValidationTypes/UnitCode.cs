@@ -12,7 +12,7 @@ public record UnitCode
     public static UnitCode From(UnitName name)
     {
         var code = string.Concat(name.Value.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select((w)=> char.ToUpper(w[0])));
+            .Select((w) => char.ToUpper(w[0])));
         return new UnitCode(code);
 
     }

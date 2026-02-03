@@ -22,8 +22,8 @@ public class CreateStudentHandler
         {
             var course = await _courseRepository.GetCourseByIdAsync(CourseId.From(command.CourseId));
             var studentExists = await _studentRepository.CheckStudentExistByEmail(EmailAddress.From(command.Email));
-            if(studentExists) return Result<StudentId>.Failure("Student already exists");
-            if(course == null) return Result<StudentId>.Failure("Course not found");
+            if (studentExists) return Result<StudentId>.Failure("Student already exists");
+            if (course == null) return Result<StudentId>.Failure("Course not found");
             var student = Student.New(
                 FullName.From(command.FirstName, command.LastName),
                 EmailAddress.From(command.Email),
@@ -32,8 +32,8 @@ public class CreateStudentHandler
             );
 
             await _studentRepository.AddAsync(student);
-        
-            return Result<StudentId>.Success(student.Id) ;
+
+            return Result<StudentId>.Success(student.Id);
 
         }
         catch (DomainException ex)

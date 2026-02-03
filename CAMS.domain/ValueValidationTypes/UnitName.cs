@@ -2,7 +2,7 @@ namespace CAMS.domain.ValueValidationTypes;
 
 public record UnitName
 {
-    public string Value { get;  }
+    public string Value { get; }
 
     private UnitName(string value)
     {

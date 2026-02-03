@@ -4,7 +4,7 @@ namespace CAMS.domain.ValueValidationTypes;
 
 public record CourseName
 {
-    public string Value { get;  }
+    public string Value { get; }
 
     private CourseName(string value)
     {

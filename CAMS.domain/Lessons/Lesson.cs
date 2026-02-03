@@ -8,7 +8,7 @@ public class Lesson
     public UnitId UnitId { get; private set; }
     public DateTime StarDateTime { get; private set; }
     public DateTime EndDateTime { get; private set; }
-    
+
     public LessonDuration Duration { get; private set; }
 
     private Lesson(LessonId lessonId, UnitId unitId, DateTime start, DateTime end)
@@ -22,6 +22,6 @@ public class Lesson
 
     public static Lesson Create(UnitId unitId, DateTime start, DateTime end)
     {
-        return new Lesson (LessonId.New(), unitId, start, end);
+        return new Lesson(LessonId.New(), unitId, start, end);
     }
 }

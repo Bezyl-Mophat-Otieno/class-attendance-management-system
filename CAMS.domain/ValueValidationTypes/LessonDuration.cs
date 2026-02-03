@@ -19,5 +19,5 @@ public record LessonDuration
         if (end <= start) throw new ArgumentException("Lesson end must be after start.");
         return new LessonDuration(end.Subtract(start));
     }
-    
+
 };

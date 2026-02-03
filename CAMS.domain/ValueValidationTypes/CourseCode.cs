@@ -12,7 +12,7 @@ public record CourseCode
     public static CourseCode From(CourseName name)
     {
         var code = string.Concat(name.Value.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select((w)=> char.ToUpper(w[0])));
+            .Select((w) => char.ToUpper(w[0])));
         return new CourseCode(code);
 
     }

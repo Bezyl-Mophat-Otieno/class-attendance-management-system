@@ -4,7 +4,7 @@ namespace ClassAttendanceManagementSystem_backend.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class DefaultController:ControllerBase
+public class DefaultController : ControllerBase
 {
     private readonly string[] _summaries =
     {
@@ -61,7 +61,7 @@ public class DefaultController:ControllerBase
         }).ToArray();
 
         return Ok(forecast);
-        
+
     }
 
     [HttpPost]

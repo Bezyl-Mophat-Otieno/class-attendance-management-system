@@ -10,7 +10,7 @@ public class Course
     public CourseCode CourseCode { get; private set; }
     public CourseDuration CourseDuration { get; private set; }
 
-    private Course(CourseId id,  CourseName name, CourseDuration duration)
+    private Course(CourseId id, CourseName name, CourseDuration duration)
     {
         Id = id;
         CourseName = name;
@@ -22,7 +22,7 @@ public class Course
     {
         return new Course(CourseId.New(), name, duration);
     }
-    
+
     public void Rename(CourseName name)
     {
         CourseName = name;

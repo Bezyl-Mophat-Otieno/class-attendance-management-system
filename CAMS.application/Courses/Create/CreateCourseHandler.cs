@@ -22,7 +22,7 @@ public class CreateCourseHandler
             var courseName = CourseName.From(command.CourseName);
             var courseDuration = CourseDuration.From(command.CourseDuration);
             var existingCourse = await _courseRepository.GetByNameAsync(courseName);
-            if(existingCourse != null) return Result<CourseId>.Failure("Course with the course name already exists.");
+            if (existingCourse != null) return Result<CourseId>.Failure("Course with the course name already exists.");
             var course = Course.Create(
                 courseName,
                 courseDuration

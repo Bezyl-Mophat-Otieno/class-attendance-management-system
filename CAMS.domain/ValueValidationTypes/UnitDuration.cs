@@ -6,7 +6,7 @@ public record UnitDuration
 
     public UnitDuration(int duration)
     {
-        if (duration is < 1 or > 60 )
+        if (duration is < 1 or > 60)
         {
             throw new ArgumentException("Unit duration should be greater than 0 and not exceed 60 hours");
         }

@@ -1,10 +1,10 @@
 namespace CAMS.application.Common;
 
-public class Result<T>: Result
+public class Result<T> : Result
 {
     public T Value { get; init; }
 
-    private Result(T value): base(true, null)
+    private Result(T value) : base(true, null)
     {
         Value = value;
     }
@@ -15,5 +15,5 @@ public class Result<T>: Result
 
     public static Result<T> Success(T value) => new(value);
     public static Result<T> Failure(string errorMessage) => new(errorMessage);
-    
+
 }
