@@ -1,22 +1,32 @@
 using CAMS.application.Abstractions.Persistence;
 using CAMS.domain.ValueValidationTypes;
+using CAMS.infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClassAttendanceManagementSystem.Persistence.Repositories;
 
 public class StudentRepository : IStudentRepository
 {
-    public Task AddAsync(Student student)
+    public AppDbContext _dbContext;
+
+    public StudentRepository(AppDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
     }
 
-    public Task<Student?> GetStudentByIdAsync(StudentId studentId)
+    public async Task AddAsync(Student student)
     {
-        throw new NotImplementedException();
+        await _dbContext.Students.AddAsync(student);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task<bool> CheckStudentExistByEmail(EmailAddress studentEmail)
+    public async Task<Student?> GetStudentByIdAsync(StudentId studentId)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Students.FindAsync(studentId);
+    }
+
+    public async Task<bool> CheckStudentExistByEmail(EmailAddress studentEmail)
+    {
+        return await _dbContext.Students.AnyAsync(s => s.Email == studentEmail);
     }
 }
