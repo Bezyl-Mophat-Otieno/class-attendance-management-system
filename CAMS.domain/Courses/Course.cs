@@ -10,7 +10,7 @@ public class Course
     public CourseCode CourseCode { get; private set; }
     public CourseDuration CourseDuration { get; private set; }
 
-    private readonly List<Student> _students = new();
+    private readonly List<Student> _students = [];
 
     public IReadOnlyCollection<Student> Students => _students.AsReadOnly(); // navigation property
 
