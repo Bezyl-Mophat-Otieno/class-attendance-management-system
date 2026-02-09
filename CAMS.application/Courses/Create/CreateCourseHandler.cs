@@ -1,5 +1,6 @@
 using CAMS.application.Abstractions.Persistence;
 using CAMS.application.Common;
+using CAMS.application.Common.Exceptions;
 using CAMS.domain.Courses;
 using CAMS.domain.ValueValidationTypes;
 using ClassAttendanceManagementSystem.Errors;
@@ -32,7 +33,8 @@ public class CreateCourseHandler
         }
         catch (DomainException e)
         {
-            return Result<CourseId>.Failure(e.Message);
+            return ApplicationExceptionTranslator<CourseId>.Translate(e);
+
         }
     }
 }
