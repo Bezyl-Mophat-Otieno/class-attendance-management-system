@@ -45,7 +45,7 @@ public class CourseRepository : ICourseRepository
     {
         try
         {
-            return await _dbContext.Courses.FindAsync();
+            return await _dbContext.Courses.FindAsync(courseId);
         }
         catch (Exception e)
         {

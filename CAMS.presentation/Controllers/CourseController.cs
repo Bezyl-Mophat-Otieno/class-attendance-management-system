@@ -8,7 +8,7 @@ namespace ClassAttendanceManagementSystem_backend.Controllers;
 [Route("api/courses")]
 public class CourseController : ControllerBase
 {
-    private CreateCourseHandler _handler;
+    private readonly CreateCourseHandler _handler;
 
     public CourseController(CreateCourseHandler handler)
     {
@@ -26,7 +26,7 @@ public class CourseController : ControllerBase
             );
         var result = await _handler.Handle(command);
 
-        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value }, null) : BadRequest(result.ErrorMessage);
+        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Value }, null) : BadRequest(result.ErrorMessage);
 
     }
     [HttpGet("{id:guid}")]
