@@ -38,7 +38,7 @@ public class CreateStudentHandler
             return Result<StudentId>.Success(student.Id);
 
         }
-        catch (DomainException ex)
+        catch (Exception ex)
         {
             return ApplicationExceptionTranslator<StudentId>.Translate(ex);
         }

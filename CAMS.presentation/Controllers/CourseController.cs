@@ -1,4 +1,5 @@
 using CAMS.application.Courses.Create;
+using CAMS.application.Courses.GetById;
 using ClassAttendanceManagementSystem_backend.Dtos.Course;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,14 @@ namespace ClassAttendanceManagementSystem_backend.Controllers;
 [Route("api/courses")]
 public class CourseController : ControllerBase
 {
-    private readonly CreateCourseHandler _handler;
+    private readonly CreateCourseHandler _createCourseHandler;
 
-    public CourseController(CreateCourseHandler handler)
+    private readonly GetCourseByIdHandler _courseByIdHandler;
+
+    public CourseController(CreateCourseHandler createCourseHandler, GetCourseByIdHandler courseByIdHandler)
     {
-        _handler = handler;
+        _createCourseHandler = createCourseHandler;
+        _courseByIdHandler = courseByIdHandler;
     }
 
     [HttpPost]
@@ -24,7 +28,7 @@ public class CourseController : ControllerBase
             requestBody.CourseName,
             requestBody.CourseDuration
             );
-        var result = await _handler.Handle(command);
+        var result = await _createCourseHandler.Handle(command);
 
         return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Value }, null) : BadRequest(result.ErrorMessage);
 
@@ -34,6 +38,8 @@ public class CourseController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetById(Guid id)
     {
-        return Ok();
+        var query = new GetCourseByIdQuery(id);
+        var result = await _courseByIdHandler.Handle(query);
+        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.ErrorMessage);
     }
 }

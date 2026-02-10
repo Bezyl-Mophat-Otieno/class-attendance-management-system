@@ -4,9 +4,8 @@ namespace CAMS.domain.ValueValidationTypes;
 
 public record StudentName
 {
-    public string Name { get; private set; }
 
-    public string Value => Name;
+    public string Value { get; private set; }
 
     private StudentName(string name)
     {
@@ -14,7 +13,7 @@ public record StudentName
         {
             throw new ArgumentException("Invalid Student Name provided");
         }
-        Name = name;
+        Value = name;
     }
 
     public static StudentName From(string value) => new(value);

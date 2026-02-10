@@ -1,5 +1,6 @@
 
 using CAMS.application.Courses.Create;
+using CAMS.application.Courses.GetById;
 using CAMS.application.Students.Create;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,8 @@ public static class DependencyInjection
     {
         services.AddScoped<CreateStudentHandler>();
         services.AddScoped<CreateCourseHandler>();
+        services.AddScoped<GetStudentByIdHandler>();
+        services.AddScoped<GetCourseByIdHandler>();
 
         return services;
     }
