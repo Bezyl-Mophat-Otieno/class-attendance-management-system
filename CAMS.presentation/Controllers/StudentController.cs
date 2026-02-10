@@ -25,7 +25,7 @@ public class StudentController : ControllerBase
             requestBody.YearOfStudy
             );
         var result = await _handler.Handle(command);
-        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value }, null) : BadRequest(result.ErrorMessage);
+        return result.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = result.Value.Value }, null) : BadRequest(result.ErrorMessage);
     }
 
     [HttpGet("{id:guid}")]

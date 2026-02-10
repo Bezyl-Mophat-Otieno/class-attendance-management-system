@@ -10,7 +10,7 @@ public sealed record EmailAddress
     {
         if (string.IsNullOrWhiteSpace(value)) throw new InvalidEmailAddress("Email cannot be empty");
 
-        if (value.Contains('@')) throw new InvalidEmailAddress("A valid email address must have the @ symbol");
+        if (!value.Contains('@')) throw new InvalidEmailAddress("A valid email address must have the @ symbol");
 
         Value = value;
     }
