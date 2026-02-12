@@ -1,3 +1,4 @@
+using CAMS.domain.Courses;
 using CAMS.domain.ValueValidationTypes;
 
 namespace CAMS.domain.Units;
@@ -9,17 +10,23 @@ public class Unit
     public UnitCode UnitCode { get; private set; }
     public UnitDuration UnitDuration { get; private set; }
 
-    private Unit(UnitId id, UnitName name, UnitDuration duration)
+    public CourseId CourseId { get; private set; }
+
+    public Course Course { get; private set; } = null; // navigation property
+
+
+    private Unit(UnitId unitId, UnitName unitName, UnitDuration unitDuration, CourseId courseId)
     {
-        UnitId = id;
-        UnitName = name;
-        UnitCode = UnitCode.From(name);
-        UnitDuration = duration;
+        UnitId = unitId;
+        UnitName = unitName;
+        UnitCode = UnitCode.From(unitName);
+        UnitDuration = unitDuration;
+        CourseId = courseId;
     }
 
-    public Unit Create(UnitName name, UnitDuration duration)
+    public static Unit Create(UnitName name, UnitDuration duration, CourseId courseId)
     {
-        return new Unit(UnitId.New(), name, duration);
+        return new Unit(UnitId.New(), name, duration, courseId);
     }
 
     public void Rename(UnitName name)

@@ -8,10 +8,7 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddAuthorization();
-        builder.Services.AddOpenApi();
-        builder.Services.AddSwaggerGen();
-        builder.Services.AddControllers();
+        builder.Services.AddPresentationLayer();
         builder.Services.AddInfrastructure(builder.Configuration);
         builder.Services.AddApplicationLayer();
 

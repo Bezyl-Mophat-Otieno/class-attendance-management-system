@@ -1,4 +1,5 @@
 using CAMS.domain.Courses;
+using CAMS.domain.Units;
 using CAMS.domain.ValueValidationTypes;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,8 @@ public sealed class AppDbContext : DbContext
 
     public DbSet<Student> Students => Set<Student>();
     public DbSet<Course> Courses => Set<Course>();
+
+    public DbSet<Unit> Units => Set<Unit>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

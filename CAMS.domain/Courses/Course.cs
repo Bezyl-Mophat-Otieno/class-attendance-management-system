@@ -1,4 +1,5 @@
 
+using CAMS.domain.Units;
 using CAMS.domain.ValueValidationTypes;
 
 namespace CAMS.domain.Courses;
@@ -12,7 +13,11 @@ public class Course
 
     private readonly List<Student> _students = [];
 
+    private readonly List<Unit> _units = [];
+
     public IReadOnlyCollection<Student> Students => _students.AsReadOnly(); // navigation property
+    public IReadOnlyCollection<Unit> Units => _units.AsReadOnly(); // navigation property
+
 
     private Course(CourseId id, CourseName courseName, CourseDuration courseDuration)
     {

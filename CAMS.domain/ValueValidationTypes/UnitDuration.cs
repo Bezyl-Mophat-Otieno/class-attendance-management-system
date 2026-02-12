@@ -13,4 +13,9 @@ public record UnitDuration
 
         Value = duration;
     }
+
+    public static UnitDuration From(int duration)
+    {
+        return new UnitDuration(duration);
+    }
 }
