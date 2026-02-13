@@ -1,6 +1,7 @@
 using CAMS.domain.Courses;
 using CAMS.domain.Units;
 using CAMS.domain.ValueValidationTypes;
+using ClassAttendanceManagementSystem.Lessons;
 using Microsoft.EntityFrameworkCore;
 
 namespace CAMS.infrastructure.Persistence;
@@ -13,6 +14,8 @@ public sealed class AppDbContext : DbContext
     public DbSet<Course> Courses => Set<Course>();
 
     public DbSet<Unit> Units => Set<Unit>();
+
+    public DbSet<Lesson> Lessons => Set<Lesson>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

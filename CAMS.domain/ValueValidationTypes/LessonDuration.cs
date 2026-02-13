@@ -20,4 +20,11 @@ public record LessonDuration
         return new LessonDuration(end.Subtract(start));
     }
 
+    public static LessonDuration FromTimespan(TimeSpan timespan)
+    {
+        return new LessonDuration(timespan);
+    }
+
+
+
 };

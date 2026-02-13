@@ -11,13 +11,15 @@ public class Lesson
 
     public LessonDuration Duration { get; private set; }
 
-    private Lesson(LessonId lessonId, UnitId unitId, DateTime start, DateTime end)
+
+
+    private Lesson(LessonId lessonId, UnitId unitId, DateTime starDateTime, DateTime endDateTime)
     {
         LessonId = lessonId;
         UnitId = unitId;
-        StarDateTime = start;
-        EndDateTime = end;
-        Duration = LessonDuration.From(start, end);
+        StarDateTime = starDateTime;
+        EndDateTime = endDateTime;
+        Duration = LessonDuration.From(starDateTime, endDateTime);
     }
 
     public static Lesson Create(UnitId unitId, DateTime start, DateTime end)
